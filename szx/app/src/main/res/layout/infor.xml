@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+android:layout_width="match_parent"
+android:orientation="vertical"
+android:layout_height="match_parent"
+android:background="#B8B8B8"
+>
+
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <Button
+        android:id="@+id/datelife"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_weight="1"
+        android:layout_marginTop="40dp"
+        android:background="#008B8B"
+        android:textColor="#E0EEE0"
+        android:text=" 日常生活"
+        />
+
+    <Button
+        android:id="@+id/news"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_weight="1"
+        android:layout_marginTop="30dp"
+        android:background="#008B8B"
+        android:textColor="#E0EEE0"
+        android:text=" 新鲜趣闻"
+        />
+
+    <Button
+        android:id="@+id/rights"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_weight="1"
+        android:layout_marginTop="30dp"
+        android:background="#008B8B"
+        android:textColor="#E0EEE0"
+        android:text=" 权益维护"
+        />
+
+    <Button
+        android:id="@+id/calendar"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_weight="1"
+        android:layout_marginTop="30dp"
+        android:background="#008B8B"
+        android:textColor="#E0EEE0"
+        android:text=" 校历黄页"
+        />
+
+    <Button
+        android:id="@+id/contribute"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_weight="1"
+        android:layout_marginTop="30dp"
+        android:background="#008B8B"
+        android:textColor="#E0EEE0"
+        android:text=" 我要投稿"
+        />
+
+</LinearLayout>
+
+<!--<include layout="@layout/select"/>-->
+
+
+</LinearLayout>

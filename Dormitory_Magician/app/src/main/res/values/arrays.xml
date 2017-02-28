@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="activity_type">
+        <item>体育运动</item>
+        <item>休闲娱乐</item>
+        <item>逛吃逛吃</item>
+    </string-array>
+</resources>

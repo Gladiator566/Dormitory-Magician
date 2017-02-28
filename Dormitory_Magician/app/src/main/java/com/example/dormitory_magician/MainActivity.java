@@ -76,56 +76,67 @@ public class MainActivity extends AppCompatActivity
 
     /*底部导航栏切换监听器*/
     @Override
-    public void onTabSelected(int position) {
+    /*public void onTabSelected(int position) {
+        lastSelectedPosition = position;
         FragmentManager fm = getFragmentManager();
         FragmentTransaction transaction = fm.beginTransaction();
         switch (position) {
             case 0:
                 if (serviceFragment == null) {
                     serviceFragment = ServiceFragment.newInstance();
+                    transaction.add(R.id.tabs, serviceFragment);
                 }
-                transaction.replace(R.id.tabs, serviceFragment);
+                else
+                    transaction.show(serviceFragment);
                 break;
             case 1:
                 if (lifeCycleFragment == null) {
                     lifeCycleFragment = LifeCycleFragment.newInstance();
+                    transaction.add(R.id.tabs, lifeCycleFragment);
                 }
-                transaction.replace(R.id.tabs, lifeCycleFragment);
+                else
+                    transaction.show(lifeCycleFragment);
                 break;
             case 2:
                 if (secondHandFragment == null) {
                     secondHandFragment = SecondHandFragment.newInstance();
+                    transaction.add(R.id.tabs, secondHandFragment);
                 }
-                transaction.replace(R.id.tabs, secondHandFragment);
+                else
+                    transaction.show(secondHandFragment);
                 break;
             case 3:
                 if (newsFragment == null) {
                     newsFragment = NewsFragment.newInstance();
+                    transaction.add(R.id.tabs, newsFragment);
                 }
-                transaction.replace(R.id.tabs, newsFragment);
+                else
+                    transaction.show(newsFragment);
                 break;
             default:
                 break;
         }
         transaction.commit();
     }
+    */
 
-    /*
     public void onTabSelected(int position) {
         if (fragments != null) {
             if (position < fragments.size()) {
+                lastSelectedPosition=position;
                 FragmentManager fm = getFragmentManager();
                 FragmentTransaction ft = fm.beginTransaction();
+                hideFragment(ft);
                 Fragment fragment = fragments.get(position);
                 if (fragment.isAdded()) {
-                    ft.replace(R.id.tabs, fragment);
+                    ft.show(fragment);
                 } else {
                     ft.add(R.id.tabs, fragment);
                 }
-                ft.commitAllowingStateLoss();
+                ft.commit();
             }
         }
-    }*/
+    }
     @Override
     public void onTabUnselected(int position) {
         if (fragments != null) {
@@ -133,11 +144,16 @@ public class MainActivity extends AppCompatActivity
                 FragmentManager fm = getFragmentManager();
                 FragmentTransaction ft = fm.beginTransaction();
                 Fragment fragment = fragments.get(position);
-                ft.remove(fragment);
-                ft.commitAllowingStateLoss();
+                if (fragment != null)
+                {
+                    ft.hide(fragment);
+                }
+                ft.commit();
             }
         }
+
     }
+
 
     @Override
     public void onTabReselected(int position) {
@@ -160,6 +176,21 @@ public class MainActivity extends AppCompatActivity
         serviceFragment = ServiceFragment.newInstance();
         transaction.replace(R.id.tabs, serviceFragment);
         transaction.commit();
+    }
+
+    private void hideFragment(FragmentTransaction transaction){
+        if (serviceFragment != null){
+            transaction.hide(serviceFragment);
+        }
+        if (lifeCycleFragment != null){
+            transaction.hide(lifeCycleFragment);
+        }
+        if (secondHandFragment != null){
+            transaction.hide(secondHandFragment);
+        }
+        if (newsFragment != null){
+            transaction.hide(newsFragment);
+        }
     }
 
     /*按下返回键*/
